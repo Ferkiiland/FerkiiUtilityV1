@@ -99,7 +99,8 @@ powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtili
 powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/FilterKeysSetter.exe' -OutFile C:\fxr\Res\FilterKeysSetter.exe
 powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/DeviceCleanup.exe' -OutFile C:\fxr\Res\DeviceCleaner.exe
 powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/SDI_x64_R2309.exe' -OutFile C:\fxr\Res\SDI_x64_R2309.exe
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/MSI_util_v2.exe' -OutFile C:\fxr\Res\MSI_UtilityV2
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/MSI_util_v2.exe' -OutFile C:\fxr\Res\MSI_UtilityV2.exe
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/WPD.exe' -OutFile C:\fxr\Res\WPD.exe
 
 
 echo.
@@ -155,12 +156,12 @@ echo.                                       [16] Mouse y Teclado        [17] Opt
 echo.                                  
 echo.                                       [19] Ajustes Adicionales    [20] Debloat             [21] DirectX Ajuste 
 echo.                                  
-echo.                                       [22] Usb Ajuste             [23] Drivers y Msi        [24] Ping Checker
+echo.                                       [22] Usb Ajuste             [23] Drivers y Msi       [24] Ping Checker
 echo.                                                                      
 echo.                                       [E] Redes                   [F] Bugs                 [W] Discord  
 echo.                         
 echo.                                                                      
-echo.                                                               Creado por Ferkii para Steven MODS
+echo.                                                                    Creado por Ferkii
 echo.
 echo.                 "===================================================================================================================" 
 echo.
@@ -664,9 +665,10 @@ echo.                                     [1] Optimizar Ajustes Windows     [2] 
 echo.
 echo.                                     [3] Explorer Tweaks               [4] Windows Tweaks 
 echo.
-echo.                                     [5] Menu Kill time                [6] Additional Tweaks           
-echo.                                                                                                                 
-echo.                                                                 
+echo.                                     [5] Menu Kill time                [6] Additional Tweaks
+echo.
+echo.                                                               [7] WPD    
+echo.                                                                                                                           
 echo.                                                    Escribe "X" para volver al menu
 echo.                                                              
 echo.                               "========================================================================"   
@@ -677,6 +679,7 @@ if /i %input% == 3 goto Explorer
 if /i %input% == 4 goto Wintwk
 if /i %input% == 5 goto Menuk
 if /i %input% == 6 goto Addi
+if /i %input% == 7 goto WpdRun
 if /i %input% == X cls & goto menu
 
 ) ELSE (
@@ -693,6 +696,10 @@ goto RedirectMenu
 cls
 goto :real
 
+:WpdRun
+Start-Process -FilePath C:\fxr\Res\WPD.exe
+timeout 3 > nul
+goto wsettings
 
 :Telemtry
 Reg.exe add "HKLM\Software\Policies\Microsoft\Windows\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d "0" /f 
@@ -4250,9 +4257,13 @@ goto drivers
 
 :sdiupdater
 powershell -c Start-Process -FilePath 'C:\fxr\Res\SDI_x64_R2309.exe'
+timeout 3 > nul
+goto drivers
 
 :msiupgrader
 powershell -c Start-Process -FilePath 'C:\fxr\Res\MSI_UtilityV2.exe'
+timeout 3 > nul
+goto drivers
 
 
 
