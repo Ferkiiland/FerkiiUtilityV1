@@ -4250,9 +4250,6 @@ goto drivers
 
 :sdiupdater
 powershell -c Start-Process -FilePath 'C:\fxr\Res\SDI_x64_R2309.exe'
-powershell -c Start-Process -FilePath C:\ProgramData\XitFerkiito.bat
-timeout 3 > nul
-goto menu
 
 :msiupgrader
 powershell -c Start-Process -FilePath 'C:\fxr\Res\MSI_UtilityV2.exe'
