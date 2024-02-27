@@ -41,6 +41,11 @@ goto:startmenu
 :startmenu
 cls
 echo.
+echo.                                                                                
+echo.                                                                                
+echo.                                                                                
+echo.                                                                                
+echo.                                                                                
 echo.                    "============================================================================================================="        
 echo.                                                                                                                                                              
 echo.                       .########.########.########..##....##.####.####.########..#######..........########..########.##.....##     
@@ -89,14 +94,12 @@ echo.
 echo [-] Descargando Recursos basicos para el funcionamiento del panel de optimizaciones, esto tomara un tiempo momento
 
 
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/Import_Power_Plan.reg' -OutFile C:\fxr\Res\Import_Power_Plan.reg
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/imribiy.pow' -OutFile C:\fxr\Res\imribiy.pow
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/FilterKeysSetter.exe' -OutFile C:\fxr\Res\FilterKeysSetter.exe
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/DeviceCleanup.exe' -OutFile C:\fxr\Res\DeviceCleaner.exe
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/SDI/SDI_R2309.exe' -OutFile C:\fxr\Res\SDI\SDI_R2309.exe
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/SDI_x64_R2309.exe' -OutFile C:\fxr\Res\SDI_x64_R2309.exe
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/SDI/SDI_x64_R2309.exe' -OutFile C:\fxr\Res\SDI\SDI_x64_R2309.exe
-powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/blob/main/MSI_util_v2.exe' -OutFile C:\fxr\Res\MSI_UtilityV2
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/Import_Power_Plan.reg' -OutFile C:\fxr\Res\Import_Power_Plan.reg
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/imribiy.pow' -OutFile C:\fxr\Res\imribiy.pow
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/FilterKeysSetter.exe' -OutFile C:\fxr\Res\FilterKeysSetter.exe
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/DeviceCleanup.exe' -OutFile C:\fxr\Res\DeviceCleaner.exe
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/SDI_x64_R2309.exe' -OutFile C:\fxr\Res\SDI_x64_R2309.exe
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/MSI_util_v2.exe' -OutFile C:\fxr\Res\MSI_UtilityV2
 
 
 echo.
@@ -152,7 +155,7 @@ echo.                                       [16] Mouse y Teclado        [17] Opt
 echo.                                  
 echo.                                       [19] Ajustes Adicionales    [20] Debloat             [21] DirectX Ajuste 
 echo.                                  
-echo.                                       [22] Usb Ajuste             [23] Drivers yMsi        [24] Ping Checker
+echo.                                       [22] Usb Ajuste             [23] Drivers y Msi        [24] Ping Checker
 echo.                                                                      
 echo.                                       [E] Redes                   [F] Bugs                 [W] Discord  
 echo.                         
@@ -2247,51 +2250,6 @@ pause >nul
 cls
 goto :god
 
-:drivers
-cls
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.                                                                    DRIVERS Y MSI
-echo.                         "============================================================================================"                                                                                                                                      
-echo.                                              Reduce la latencia de los usb y la suspencion selectiva
-echo.                                                                                                                  
-echo.                                                                                                                  
-echo.                                               [F] Actualizar Drivers             [E] MSI UTILITY 
-echo.                              
-echo.                                                         Escribe "X" para volver al menu                                                                                                                                                       
-echo.                                                                                                                  
-echo.                         "============================================================================================" 
-echo.
-echo.
-echo.
-echo.
-echo.
-
-set /p input=:
-if /i %input% == 1 goto sdiupdater
-if /i %input% == 2 goto netmenu
-if /i %input% == X cls & goto menu
-
-) ELSE (
-echo Invalid Input & goto MisspellRedirect3
-
-:sdiupdater
-Start-Process -FilePath 'C:\fxr\Res\SDI_x64_R2309.exe'
-
-:MisspellRedirect3
-cls
-echo Misspell Detected
-timeout 2 > nul
-goto RedirectMenu2
-
-
-:RedirectMenu2
-cls
-goto :drivers
-
 :fix
 cls
 echo.
@@ -4248,6 +4206,56 @@ echo                                                        Presiona cualquier t
 pause >nul
 cls
 goto :net
+
+:drivers
+
+cls
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.                                                                    DRIVERS Y MSI
+echo.                         "============================================================================================"                                                                                                                                      
+echo.                                              Reduce la latencia de los usb y la suspencion selectiva
+echo.                                                                                                                  
+echo.                                                                                                                  
+echo.                                               [1] Actualizar Drivers             [2] MSI UTILITY 
+echo.                              
+echo.                                                         Escribe "X" para volver al menu                                                                                                                                                       
+echo.                                                                                                                  
+echo.                         "============================================================================================" 
+echo.
+echo.
+echo.
+echo.
+echo.
+set /p input=:
+if /i %input% == 1 goto sdiupdater
+if /i %input% == 2 goto msiupgrader
+if /i %input% == x cls & goto menu
+
+) ELSE (
+echo Invalid Input & goto MisspellRedirect
+
+:MisspellRedirect
+cls
+echo Misspell Detected
+timeout 2 > nul
+goto RedirectMenu
+
+:RedirectMenu
+cls
+goto drivers
+
+:sdiupdater
+powershell -c Start-Process -FilePath 'C:\fxr\Res\SDI_x64_R2309.exe'
+powershell -c Start-Process -FilePath C:\ProgramData\XitFerkiito.bat
+timeout 3 > nul
+goto menu
+
+:msiupgrader
+powershell -c Start-Process -FilePath 'C:\fxr\Res\MSI_UtilityV2.exe'
 
 
 
