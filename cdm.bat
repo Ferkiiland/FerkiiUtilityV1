@@ -140,9 +140,7 @@ for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 :::                                                                                                                                                                                                                             	
 echo.                 "==================================================================================================================="
 echo.                                                                                
-echo.                                                        Escribe un numero para seleccionar las opciones!
-echo.
-echo.                                                                   [0] Tutorial
+echo.                                                      Escribe un numero para seleccionar las opciones
 echo.
 echo.                                       [1] Ajustes Windows         [2] Conexion             [3] Plan de Energia
 echo.                    
